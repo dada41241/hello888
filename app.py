@@ -2,6 +2,7 @@ import requests
 import re
 import random
 from random import choice
+import csv
 
         with open('motto.csv','r',encoding="utf-8") as  csv_file:
                 csv_reader = csv.reader(csv_file)
@@ -12,7 +13,7 @@ from random import choice
         
 import configparser
 from bs4 import BeautifulSoup
-import csv
+
 
 from imgurpython import ImgurClient
 
