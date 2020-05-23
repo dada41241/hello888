@@ -6,9 +6,7 @@ import csv
 with open('motto.csv','r',encoding="utf-8") as  csv_file:
         csv_reader = csv.reader(csv_file)
         my_list = list(csv_reader)
-        first=random.choice(my_list[0])
-        second=random.choice(my_list[1])
-        my_motto = (first + second)
+        
         
 import configparser
 from bs4 import BeautifulSoup
@@ -97,6 +95,9 @@ def handle_message(event):
         images = client.get_album_images('qpPMzY9')
         index = random.randint(0, len(images) - 1)
         url = images[index].link
+        first=random.choice(my_list[0])
+        second=random.choice(my_list[1])
+        my_motto = (first + second)
         image_message = ImageSendMessage(
             original_content_url=url,
             preview_image_url=url
