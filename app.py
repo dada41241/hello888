@@ -4,6 +4,14 @@ import random
 from random import choice
 import configparser
 from bs4 import BeautifulSoup
+import csv
+import random
+with open('motto.csv','r',encoding="utf-8") as  csv_file:
+        csv_reader = csv.reader(csv_file)
+        my_list = list(csv_reader)
+        first=random.choice(my_list[0])
+        second=random.choice(my_list[1])
+        my_motto= "{morning} {greeting}".format(morning=first,greeting=second)
 
 from imgurpython import ImgurClient
 
@@ -94,7 +102,7 @@ def handle_message(event):
         )
         
         line_bot_api.reply_message(
-            event.reply_token, image_message)
+            event.reply_token, [image_message, TextSendMessage(text=my_motto)])
                                                         
         return 0
     
