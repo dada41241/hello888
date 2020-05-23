@@ -96,11 +96,13 @@ def handle_message(event):
         index = random.randint(0, len(images) - 1)
         url = images[index].link
         index = random.randint(0, len(images) - 1)
-        url = images[index].link
+        url2 = images[index].link
         
-        image_message = ImageSendMessage(
+        image_message = ImageSendMessage({
             original_content_url=url,
-            preview_image_url=url
+            preview_image_url=url,
+            original_content_url=url2,
+            preview_image_url=url2
         )
         morning=random.choice(my_list[0])
         morningpun1=random.choice(my_list[1])
