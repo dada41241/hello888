@@ -5,7 +5,7 @@ from random import choice
 import csv
 
 
----------------------------------------        
+  
 import gspread
 import random
 from oauth2client.service_account import ServiceAccountCredentials
@@ -20,7 +20,7 @@ client = gspread.authorize(creds)
 sheet = client.open("mottomorning").sheet1
 data=sheet.get_all_records()        
         
-----------------------------------------------------        
+       
 
         
 import configparser
