@@ -95,16 +95,22 @@ def handle_message(event):
         images = client.get_album_images('qpPMzY9')
         index = random.randint(0, len(images) - 1)
         url = images[index].link
-        first=random.choice(my_list[0])
-        second=random.choice(my_list[1])
-        my_motto = (first + second)
+        morning=random.choice(my_list[0])
+        morningpun1=random.choice(my_list[1])
+        morningwish=random.choice(my_list[2])
+        morningpun2=random.choice(my_list[3])
+        share=random.choice(my_list[4])
+        morningpun3=random.choice(my_list[5])
+        morning_motto= "{morning}{punct1}{wish}{punct2}{share}{punct3}".format(morning=morning,punct1=morningpun1,
+                                                                   wish=morningwish,punct2=morningpun2,share=share,
+                                                                               punct3=morningpun3)
         image_message = ImageSendMessage(
             original_content_url=url,
             preview_image_url=url
         )
         
         line_bot_api.reply_message(
-            event.reply_token, [image_message, TextSendMessage(text=my_motto)])
+            event.reply_token, [image_message, TextSendMessage(text=morning_motto)])
                                                         
         return 0
     
