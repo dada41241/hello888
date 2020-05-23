@@ -8,7 +8,7 @@ with open('motto.csv','r',encoding="utf-8") as  csv_file:
         my_list = list(csv_reader)
         first=random.choice(my_list[0])
         second=random.choice(my_list[1])
-        my_motto= "{morning} {greeting}".format(morning=first,greeting=second)
+        my_motto = (first + second)
         
 import configparser
 from bs4 import BeautifulSoup
