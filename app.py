@@ -112,17 +112,27 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token, [image_message, image_message, TextSendMessage(text=morning_motto)])
         
+        
         client = ImgurClient('18f064544f219ac', 'b17f2b3ef24f98c4e3cce9424ef0b1b7173ef642')
         images = client.get_album_images('qpPMzY9')
         index = random.randint(0, len(images) - 1)
         url = images[index].link
+        
         image_message = ImageSendMessage(
             original_content_url=url,
             preview_image_url=url
         )
-        
+        morning=random.choice(my_list[0])
+        morningpun1=random.choice(my_list[1])
+        morningwish=random.choice(my_list[2])
+        morningpun2=random.choice(my_list[3])
+        share=random.choice(my_list[4])
+        morningpun3=random.choice(my_list[5])
+        morning_motto= "{morning}{punct1}{wish}{punct2}{share}{punct3}".format(morning=morning,punct1=morningpun1,
+                                                                   wish=morningwish,punct2=morningpun2,share=share,
+                                                                               punct3=morningpun3)
         line_bot_api.reply_message(
-            event.reply_token, [image_message, TextSendMessage(text=morning_motto)])
+            event.reply_token, [image_message, image_message, TextSendMessage(text=morning_motto)])
                                                         
         return 0
     
