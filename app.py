@@ -106,6 +106,10 @@ def handle_message(event):
             preview_image_url=url2
         )
         
+        line_bot_api.reply_message(
+            event.reply_token, image_message)
+        
+        
         morning=random.choice(my_list[0])
         morningpun1=random.choice(my_list[1])
         morningwish=random.choice(my_list[2])
