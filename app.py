@@ -3,9 +3,7 @@ import re
 import random
 from random import choice
 import csv
-with open('motto.csv','r',encoding="utf-8") as  csv_file:
-        csv_reader = csv.reader(csv_file)
-        my_list = list(csv_reader)
+
 
 ---------------------------------------        
 import gspread
