@@ -3,13 +3,12 @@ import re
 import random
 from random import choice
 import csv
-
-        with open('motto.csv','r',encoding="utf-8") as  csv_file:
-                csv_reader = csv.reader(csv_file)
-                my_list = list(csv_reader)
-                first=random.choice(my_list[0])
-                second=random.choice(my_list[1])
-                my_motto= "{morning} {greeting}".format(morning=first,greeting=second)
+with open('motto.csv','r',encoding="utf-8") as  csv_file:
+        csv_reader = csv.reader(csv_file)
+        my_list = list(csv_reader)
+        first=random.choice(my_list[0])
+        second=random.choice(my_list[1])
+        my_motto= "{morning} {greeting}".format(morning=first,greeting=second)
         
 import configparser
 from bs4 import BeautifulSoup
