@@ -103,7 +103,7 @@ def handle_message(event):
         )
         
         line_bot_api.reply_message(
-            event.reply_token, [image_message, TextSendMessage(text="{morning} {greeting}".format(morning=first,greeting=second))])
+            event.reply_token, [image_message, TextSendMessage(text=my_motto)])
                                                         
         return 0
     
