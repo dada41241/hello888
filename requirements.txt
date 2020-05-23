@@ -5,4 +5,4 @@ beautifulsoup4==4.6.3
 line-bot-sdk==1.8.0
 imgurpython==1.1.7
 scipy
-gspread oauth2client
+gspread
