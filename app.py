@@ -6,7 +6,24 @@ import csv
 with open('motto.csv','r',encoding="utf-8") as  csv_file:
         csv_reader = csv.reader(csv_file)
         my_list = list(csv_reader)
+
+---------------------------------------        
+import gspread
+import random
+from oauth2client.service_account import ServiceAccountCredentials
+from pprint import pprint
+
+scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
+
+creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
+
+client = gspread.authorize(creds)
+
+sheet = client.open("mottomorning").sheet1
+data=sheet.get_all_records()        
         
+----------------------------------------------------        
+
         
 import configparser
 from bs4 import BeautifulSoup
@@ -104,17 +121,15 @@ def handle_message(event):
         
         
         
-        morning=random.choice(my_list[0])
-        morningpun1=random.choice(my_list[1])
-        morningwish=random.choice(my_list[2])
-        morningpun2=random.choice(my_list[3])
-        share=random.choice(my_list[4])
-        morningpun3=random.choice(my_list[5])
-        morning_motto= "{morning}{punct1}{wish}{punct2}{share}{punct3}".format(morning=morning,punct1=morningpun1,
-                                                                   wish=morningwish,punct2=morningpun2,share=share,
-                                                                               punct3=morningpun3)
+        早安 = random.choice(sheet.col_values(1))
+        標點1 = random.choice(sheet.col_values(2))
+        祝福 = random.choice(sheet.col_values(3))
+        標點2 = random.choice(sheet.col_values(4))
+        分享= random.choice(sheet.col_values(5))
+        標點3= random.choice(sheet.col_values(6))
+        早安祝福="{早安}{標點1}{祝福}{標點2}{分享}{標點3}".format(早安=早安,標點1=標點1,祝福=祝福,標點2=標點2,分享=分享,標點3=標點3)
         line_bot_api.reply_message(
-            event.reply_token, [image_message, TextSendMessage(text=morning_motto)])
+            event.reply_token, [image_message, TextSendMessage(text=早安祝福)])
         
         
  
