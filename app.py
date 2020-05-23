@@ -110,7 +110,7 @@ def handle_message(event):
                                                                    wish=morningwish,punct2=morningpun2,share=share,
                                                                                punct3=morningpun3)
         line_bot_api.reply_message(
-            event.reply_token, image_message)
+            event.reply_token, [image_message, image_message, TextSendMessage(text=morning_motto)])
         
         client = ImgurClient('18f064544f219ac', 'b17f2b3ef24f98c4e3cce9424ef0b1b7173ef642')
         images = client.get_album_images('qpPMzY9')
