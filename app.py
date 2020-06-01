@@ -208,7 +208,7 @@ def handle_message(event):
       
     if event.message.text == "我要問安圖!":
         message = ImagemapSendMessage(
-            base_url='https://i.imgur.com/Y3Ld67O.png',
+            base_url='https://i.imgur.com/SvEVQRQ.png',
             alt_text='this is an imagemap',
             base_size=BaseSize(height=1040, width=1040),
             actions=[
@@ -231,7 +231,7 @@ def handle_message(event):
                     )
                 ),
                 MessageImagemapAction(
-                    text='週末',
+                    text='週末愉快',
                     area=ImagemapArea(
                         x=520, y=520, width=520, height=520
                     )
