@@ -205,7 +205,44 @@ def handle_message(event):
             event.reply_token, [image_message, TextSendMessage(text=週末祝福)])
                                                         
         return 0
+      
+    if event.message.text == "我要問安圖":
+        message = ImagemapSendMessage(
+            base_url='https://i.imgur.com/Y3Ld67O.png',
+            alt_text='this is an imagemap',
+            base_size=BaseSize(height=1040, width=1040),
+            actions=[
+                MessageImagemapAction(
+                    text='早安',
+                    area=ImagemapArea(
+                        x=0, y=0, width=520, height=520
+                    )
+                ),
+                MessageImagemapAction(
+                    text='午安',
+                    area=ImagemapArea(
+                        x=520, y=0, width=520, height=520
+                    )
+                ),
+                MessageImagemapAction(
+                    text='晚安',
+                    area=ImagemapArea(
+                        x=0, y=520, width=520, height=520
+                    )
+                ),
+                MessageImagemapAction(
+                    text='週末',
+                    area=ImagemapArea(
+                        x=520, y=520, width=520, height=520
+                    )
+                )
+            ]
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+        
+        return 0
     
+
     
         
  
