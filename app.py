@@ -206,7 +206,7 @@ def handle_message(event):
                                                         
         return 0
       
-    if event.message.text == "我要問安圖":
+    if event.message.text == "我要問安圖!":
         message = ImagemapSendMessage(
             base_url='https://i.imgur.com/Y3Ld67O.png',
             alt_text='this is an imagemap',
