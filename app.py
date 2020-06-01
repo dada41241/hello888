@@ -183,7 +183,28 @@ def handle_message(event):
                                                         
         return 0
     
-    
+    if event.message.text == "週末愉快":
+        client = ImgurClient('18f064544f219ac', 'b17f2b3ef24f98c4e3cce9424ef0b1b7173ef642')
+        images = client.get_album_images('hyoRqLE')
+        index = random.randint(0, len(images) - 1)
+        url = images[index].link
+        image_message = ImageSendMessage(
+            original_content_url=url,
+            preview_image_url=url
+        )
+        
+        
+        週末 = random.choice(sheet.col_values(16))
+        標點1 = random.choice(sheet.col_values(2))
+        祝福 = random.choice(sheet.col_values(17))
+        標點2 = random.choice(sheet.col_values(4))
+        分享= random.choice(sheet.col_values(5))
+        標點3= random.choice(sheet.col_values(6))
+        週末祝福="{週末}{標點1}{祝福}{標點2}{分享}{標點3}".format(週末=週末,標點1=標點1,祝福=祝福,標點2=標點2,分享=分享,標點3=標點3)
+        line_bot_api.reply_message(
+            event.reply_token, [image_message, TextSendMessage(text=週末祝福)])
+                                                        
+        return 0
     
     
         
