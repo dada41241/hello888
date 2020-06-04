@@ -139,7 +139,7 @@ def handle_message(event):
         標點3= random.choice(sheet.col_values(6))
         早安祝福="{早安}{標點1}{祝福}{標點2}{分享}{標點3}".format(早安=早安,標點1=標點1,祝福=祝福,標點2=標點2,分享=分享,標點3=標點3)
         line_bot_api.reply_message(
-            event.reply_token, [image_message, TextSendMessage(text=早安祝福)])
+            event.reply_token, [image_message, image_message2, image_message3, TextSendMessage(text=早安祝福)])
         
         
  
