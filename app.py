@@ -107,7 +107,7 @@ def ettoday():
     for data in soup.select('div.part_pictxt_3 div.piece.clearfix h3 a'):
         title = data.text
         link = data['href']
-        content += '{}\n{}\n\n'.format(title, link)
+        content += '{}\n{}'.format(title, link)
     return content
 
 
