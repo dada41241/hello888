@@ -105,7 +105,7 @@ def ettoday():
     soup = BeautifulSoup(res.text, 'html.parser')
     content = ""
     for data in soup.select('div.part_pictxt_3 div.piece.clearfix h3 a'):
-        title = data.text
+        title = data.text[0]
         link = data['href']
         content += '{}\n{}'.format(title, link)
     return content
