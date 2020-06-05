@@ -104,12 +104,12 @@ def ettoday():
     res = rs.get(target_url, verify=False)
     soup = BeautifulSoup(res.text, 'html.parser')
     content = ""
-    news_all=soup.select('div.part_pictxt_3 div.piece.clearfix h3 a')
-    for news in news_all:
-      title= news.text
-      link= news['href']
-      content = '{}\n{}\n\n'.format(title, link)
-      return content
+    for data in soup.select('div.part_pictxt_3 div.piece.clearfix h3 a')[0:9]:
+        title = data.text
+        link = data['href']
+        content += '{}\n{}\n\n'.format(title, link)
+    return content
+
 
 
 
