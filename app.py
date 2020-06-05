@@ -271,7 +271,7 @@ def handle_message(event):
         
         return 0
 
-    if event.message.text == "ettoday":
+    if event.message.text == "每日新知":
         content = ettoday()
         line_bot_api.reply_message(
             event.reply_token,
