@@ -292,10 +292,10 @@ def handle_message(event):
         return 0
       
     if event.message.text == "1":
-        content = test_news()
+        content = random.choices(testnews(),k=5)
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=random.sample(content, k=5)))
+            TextSendMessage(text=content))
         return 0
 
  
