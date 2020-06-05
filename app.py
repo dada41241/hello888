@@ -291,7 +291,7 @@ def handle_message(event):
             TextSendMessage(text=content))
         return 0
       
-    if event.message.text == "每日新知":
+    if event.message.text == "1":
         content = test_news()
         line_bot_api.reply_message(
             event.reply_token,
