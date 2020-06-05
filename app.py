@@ -284,14 +284,14 @@ def handle_message(event):
         
         return 0
 
-    if event.message.text == "每日新知":
+    if event.message.text == "11111":
         content = ettoday()
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
         return 0
       
-    if event.message.text == "1":
+    if event.message.text == "每日新知":
         content="".join(random.sample(test_news(),k=5))
         line_bot_api.reply_message(
             event.reply_token,
