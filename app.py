@@ -295,7 +295,7 @@ def handle_message(event):
         content = test_news()
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=random.choice(content)))
+            TextSendMessage(text=random.sample(content, k=5)))
         return 0
 
  
