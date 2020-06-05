@@ -109,7 +109,7 @@ def ettoday():
       title= news.text
       link= news['href']
       content = '{}\n{}\n\n'.format(title, link)
-    return content
+      return content
 
 
 
