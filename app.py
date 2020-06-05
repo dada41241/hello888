@@ -291,12 +291,13 @@ def handle_message(event):
             TextSendMessage(text=content))
         return 0
       
-    if event.message.text == "testnews":
+    if event.message.text == "每日新知":
         content = test_news()
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=content[1])
+            TextSendMessage(text=random.choice(content)))
         return 0
+
  
 
 @app.route('/')
