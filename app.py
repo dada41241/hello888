@@ -111,19 +111,17 @@ def ettoday():
         content += '{}\n{}\n\n'.format(title, link)
     return content
   
-def ettoday2():
-    target_url = 'https://www.ettoday.net/news/realtime-hot.htm'
-    print('Start parsing ptt hot....')
-    rs = requests.session()
-    res = rs.get(target_url, verify=False)
-    soup = BeautifulSoup(res.text, 'html.parser')
-    content = []
-    for data in soup.select('div.part_pictxt_3 div.piece.clearfix h3 a'):
-        title = data.text
-        link = data['href']
-        news='{}\n{}\n\n'.format(title, link)
-        content.append(news)
-    return content
+target_url = 'https://www.ettoday.net/news/realtime-hot.htm'
+print('Start parsing ptt hot....')
+rs = requests.session()
+res = rs.get(target_url, verify=False)
+soup = BeautifulSoup(res.text, 'html.parser')
+new_content = []
+for data in soup.select('div.part_pictxt_3 div.piece.clearfix h3 a'):
+  title = data.text
+  link = data['href']
+  news='{}\n{}\n\n'.format(title, link)
+  news_content.append(news)
 
 
 
@@ -296,7 +294,7 @@ def handle_message(event):
         news = ettoday2()
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=random.sample(news,k=4)))
+            TextSendMessage(text=news_content))
         return 0
  
 
