@@ -292,7 +292,7 @@ def handle_message(event):
         return 0
       
     if event.message.text == "每日新知":
-        content="".join(random.sample(test_news(),k=5))
+        content="".join(random.sample(test_news(),k=3))
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
