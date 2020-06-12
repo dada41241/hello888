@@ -303,7 +303,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 title='新聞類型',
                 text='永遠求知若渴，知識就是力量!',
-                thumbnail_image_url='https://i.imgur.com/vkqbLnz.png',
+                thumbnail_image_url='https://i.imgur.com/qAD7YYn.png',
                 actions=[
                     MessageTemplateAction(
                         label='每日新知',
