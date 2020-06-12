@@ -294,8 +294,8 @@ def handle_message(event):
                 thumbnail_image_url='https://i.imgur.com/vkqbLnz.png',
                 actions=[
                     MessageTemplateAction(
-                        label='Ettoday',
-                        text='Ettoday'
+                        label='每日新知',
+                        text='每日新知'
                     ),
                     MessageTemplateAction(
                         label='健康新知',
