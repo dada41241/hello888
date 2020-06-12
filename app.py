@@ -298,7 +298,7 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=content))
         return 0
-    if event.message.text == "早安哲學":
+    if event.message.text == "早安哲學1":
         article = random.choice(sheet_morningwisdom.col_values(1))
         line_bot_api.reply_message(
             event.reply_token,
