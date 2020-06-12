@@ -290,7 +290,7 @@ def handle_message(event):
             alt_text='新聞 template',
             template=ButtonsTemplate(
                 title='新聞類型',
-                text='請選擇',
+                text='永遠渴求新知',
                 thumbnail_image_url='https://i.imgur.com/vkqbLnz.png',
                 actions=[
                     MessageTemplateAction(
@@ -308,13 +308,15 @@ def handle_message(event):
                 ]
             )
         )
+        line_bot_api.reply_message(event.reply_token, buttons_template)
+        return 0
       
     if event.message.text == "格言":
         buttons_template = TemplateSendMessage(
             alt_text='新聞 template',
             template=ButtonsTemplate(
-                title='新聞類型',
-                text='請選擇',
+                title='早安格言',
+                text='充實你的內涵',
                 thumbnail_image_url='https://i.imgur.com/vkqbLnz.png',
                 actions=[
                     MessageTemplateAction(
@@ -328,6 +330,8 @@ def handle_message(event):
                 ]
             )
         )
+        line_bot_api.reply_message(event.reply_token, buttons_template)
+        return 0
     if event.message.text == "每日新知":
         content="".join(random.sample(test_news(),k=3))
         line_bot_api.reply_message(
