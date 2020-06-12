@@ -19,6 +19,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
 client = gspread.authorize(creds)
 
 sheet = client.open("mottomorning").sheet1
+sheet_早安哲學=client.open("mottomorning").sheet2
 data=sheet.get_all_records()        
         
        
@@ -296,6 +297,12 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
+        return 0
+    if event.message.text == "早安哲學":
+        article = random.choice(sheet_早安哲學.col_values(1))
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=article))
         return 0
 
  
