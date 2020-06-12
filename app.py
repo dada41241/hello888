@@ -148,7 +148,7 @@ def handle_message(event):
     print("event.reply_token:", event.reply_token)
     print("event.message.text:", event.message.text)
     
-    if event.message.text == "早安":
+    if event.message.text == "早安慢慢的":
         client = ImgurClient('18f064544f219ac', 'b17f2b3ef24f98c4e3cce9424ef0b1b7173ef642')
         images = client.get_album_images('qpPMzY9')
         index = random.randint(0, len(images) - 1)
@@ -261,12 +261,24 @@ def handle_message(event):
                                                         
         return 0      
       
-    if event.message.text == "早安測試":
+    if event.message.text == "早安":
         client = ImgurClient('18f064544f219ac', 'b17f2b3ef24f98c4e3cce9424ef0b1b7173ef642')
-        images = client.get_album_images('hyoRqLE')
+        images = client.get_album_images('qpPMzY9')
         index = random.randint(0, len(images) - 1)
         url = images[index].link
         image_message = ImageSendMessage(
+            original_content_url=url,
+            preview_image_url=url
+        )
+        index = random.randint(0, len(images) - 1)
+        url = images[index].link
+        image_message2 = ImageSendMessage(
+            original_content_url=url,
+            preview_image_url=url
+        )
+        index = random.randint(0, len(images) - 1)
+        url = images[index].link
+        image_message3 = ImageSendMessage(
             original_content_url=url,
             preview_image_url=url
         )
@@ -287,9 +299,9 @@ def handle_message(event):
         逗點3= random.choice(逗點3_list)
         
         
-        早安測試="{}{}{}{}{}{}".format(早安,逗點1,祝福,逗點2,認同分享,逗點3)
+        早安祝福="{}{}{}{}{}{}".format(早安,逗點1,祝福,逗點2,認同分享,逗點3)
         line_bot_api.reply_message(
-            event.reply_token, [image_message, TextSendMessage(text=早安測試)])
+            event.reply_token, [image_message, TextSendMessage(text=早安祝福)])
                                                         
         return 0      
       
