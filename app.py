@@ -129,15 +129,15 @@ def healthnews():
   
 def panx():
     target_url = 'https://panx.asia/'
-    print('Start parsing ptt hot....')
     rs = requests.session()
     res = rs.get(target_url, verify=False)
     soup = BeautifulSoup(res.text, 'html.parser')
-    content = ""
+    content= []
     for data in soup.select('div.container div.row div.desc_wrap h2 a'):
         title = data.text
         link = data['href']
-        content += '{}\n{}\n\n'.format(title, link)
+        news='{}\n{}\n\n'.format(title, link)
+        content.append(news)
     return content
 
 # 處理訊息
@@ -344,22 +344,23 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, buttons_template)
         return 0
+#ettoday      
     if event.message.text == "每日新知":
         content="".join(random.sample(test_news(),k=3))
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
         return 0
-      
+#早安健康      
     if event.message.text == "健康新知":
         content="".join(random.sample(healthnews(),k=3))
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
         return 0
-      
+#泛科技      
     if event.message.text == "科技新知":
-        content = panx()
+        content="".join(random.sample(panx(),k=3))
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
