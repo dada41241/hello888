@@ -317,7 +317,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 title='早安格言',
                 text='充實你的內涵',
-                thumbnail_image_url='https://i.imgur.com/RNDia1O.png',
+                thumbnail_image_url='https://i.imgur.com/GUdL3yV.png',
                 actions=[
                     MessageTemplateAction(
                         label='早安格言',
