@@ -19,7 +19,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
 client = gspread.authorize(creds)
 
 sheet = client.open("mottomorning").sheet1
-sheet_早安哲學=client.open("mottomorning").sheet2
+sheet_早安哲學=client.open("早安哲學").sheet1
 data=sheet.get_all_records()        
         
        
