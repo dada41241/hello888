@@ -297,12 +297,12 @@ def handle_message(event):
         
         return 0
 
-    if event.message.text == "新聞":
+    if event.message.text == "活到老，學到老，知識就是我的糧食!":
         buttons_template = TemplateSendMessage(
             alt_text='新聞 template',
             template=ButtonsTemplate(
                 title='新聞類型',
-                text='永遠求知若渴',
+                text='永遠求知若渴，知識就是力量!',
                 thumbnail_image_url='https://i.imgur.com/vkqbLnz.png',
                 actions=[
                     MessageTemplateAction(
