@@ -276,9 +276,9 @@ def handle_message(event):
         早安 = random.choice(早安_list)
         祝福 = random.choice(sheet.col_values(17))
         
-        1234="{}{}".format(早安,祝福)
+        早安測試="{}{}".format(早安,祝福)
         line_bot_api.reply_message(
-            event.reply_token, [image_message, TextSendMessage(text=1234)])
+            event.reply_token, [image_message, TextSendMessage(text=早安測試)])
                                                         
         return 0      
       
