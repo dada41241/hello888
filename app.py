@@ -243,15 +243,19 @@ def handle_message(event):
             preview_image_url=url
         )
         
+        午安_list=["午安","下午好","午安呀","美好的下午","大家午安","朋友午安"]
+        認同分享_list=["認同請分享","分享是做功德","按讚是美德，分享是功德!","每天都要傳遞正能量","每天都要道聲早安"]
+        逗點1_list=["！","！！","~","~~","~~!","~！","！！！"]
+        逗點2_list=["，","！","！！","~","~~","~~!","~!","！！！","。"]
+        逗點3_list=["！","！！","~","~~","~~~","~！","。"]
         
-        
-        午安 = random.choice(sheet.col_values(8))
-        標點1 = random.choice(sheet.col_values(2))
+        午安 = random.choice(午安_list)
+        逗點1= random.choice(逗點1_list)
         祝福 = random.choice(sheet.col_values(9))
-        標點2 = random.choice(sheet.col_values(4))
-        分享= random.choice(sheet.col_values(10))
-        標點3= random.choice(sheet.col_values(6))
-        午安祝福="{午安}{標點1}{祝福}{標點2}{分享}{標點3}".format(午安=午安,標點1=標點1,祝福=祝福,標點2=標點2,分享=分享,標點3=標點3)
+        逗點2= random.choice(逗點2_list)
+        認同分享=random.choice(認同分享_list)
+        逗點3= random.choice(逗點3_list)
+        午安祝福="{}{}{}{}{}{}".format(午安,逗點1,祝福,逗點2,認同分享,逗點3)
         
         line_bot_api.reply_message(
             event.reply_token, [image_message, TextSendMessage(text=午安祝福)])
@@ -269,13 +273,19 @@ def handle_message(event):
         )
         
         
-        晚安 = random.choice(sheet.col_values(12))
-        標點1 = random.choice(sheet.col_values(2))
+        晚安_list=["晚安","晚上好","朋友晚安","晚安親愛的","晚安呀","好美的夜晚","看!那繁星點綴的夜空","寂寥的夜晚，吹著孤寂的夜風"]
+        認同分享_list=["認同請分享","分享是做功德","按讚是美德，分享是功德!","每天都要傳遞正能量","每天都要道聲早安"]
+        逗點1_list=["！","！！","~","~~","~~!","~！","！！！"]
+        逗點2_list=["，","！","！！","~","~~","~~!","~!","！！！","。"]
+        逗點3_list=["！","！！","~","~~","~~~","~！","。"]
+        
+        晚安 = random.choice(晚安_list)
+        逗點1= random.choice(逗點1_list)
         祝福 = random.choice(sheet.col_values(13))
-        標點2 = random.choice(sheet.col_values(4))
-        分享= random.choice(sheet.col_values(14))
-        標點3= random.choice(sheet.col_values(6))
-        晚安祝福="{晚安}{標點1}{祝福}{標點2}{分享}{標點3}".format(晚安=晚安,標點1=標點1,祝福=祝福,標點2=標點2,分享=分享,標點3=標點3)
+        逗點2= random.choice(逗點2_list)
+        認同分享=random.choice(認同分享_list)
+        逗點3= random.choice(逗點3_list)
+        晚安祝福="{}{}{}{}{}{}".format(晚安,逗點1,祝福,逗點2,認同分享,逗點3)
         
         line_bot_api.reply_message(
             event.reply_token, [image_message, TextSendMessage(text=晚安祝福)])
