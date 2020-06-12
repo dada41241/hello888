@@ -272,8 +272,8 @@ def handle_message(event):
         )
         
         
-        1=["早安","早上好","晨安"]
-        早安 = random.choice(1)
+        早安_list=["早安","早上好","晨安"]
+        早安 = random.choice(早安_list)
         祝福 = random.choice(sheet.col_values(17))
         
         1234="{}{}".format(早安,祝福)
