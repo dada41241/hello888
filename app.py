@@ -98,19 +98,7 @@ def callback():
     return 'OK'
   
   
-def ettoday():
-    target_url = 'https://www.ettoday.net/news/realtime-hot.htm'
-    print('Start parsing ptt hot....')
-    rs = requests.session()
-    res = rs.get(target_url, verify=False)
-    soup = BeautifulSoup(res.text, 'html.parser')
-    content = ""
-    news_all=soup.select('div.part_pictxt_3 div.piece.clearfix h3 a')
-    for news in news_all[0:10]:
-        title= news.text
-        link= news['href']
-        content += '{}\n{}\n\n'.format(title, link)
-    return content
+
   
 def test_news():
     target_url = 'https://www.ettoday.net/news/realtime-hot.htm'
@@ -126,7 +114,31 @@ def test_news():
         content.append(news)
     return content
 
-
+def healthnews():
+    target_url = 'https://www.edh.tw/'
+    rs = requests.session()
+    res = rs.get(target_url, verify=False)
+    soup = BeautifulSoup(res.text, 'html.parser')
+    content= []
+    for data in soup.select('div.title a'):
+        title=data.text
+        link = data['href']
+        news='{}\n{}\n\n'.format(title, link)
+        content.append(news)
+    return content
+  
+def panx():
+    target_url = 'https://panx.asia/'
+    print('Start parsing ptt hot....')
+    rs = requests.session()
+    res = rs.get(target_url, verify=False)
+    soup = BeautifulSoup(res.text, 'html.parser')
+    content = ""
+    for data in soup.select('div.container div.row div.desc_wrap h2 a'):
+        title = data.text
+        link = data['href']
+        content += '{}\n{}\n\n'.format(title, link)
+    return content
 
 # 處理訊息
 
@@ -316,7 +328,7 @@ def handle_message(event):
             alt_text='新聞 template',
             template=ButtonsTemplate(
                 title='早安格言',
-                text='充實你的內涵',
+                text='充實你的內涵，內涵是最好的化粧品',
                 thumbnail_image_url='https://i.imgur.com/GUdL3yV.png',
                 actions=[
                     MessageTemplateAction(
@@ -338,6 +350,21 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=content))
         return 0
+      
+    if event.message.text == "健康新知":
+        content="".join(random.sample(healthnews(),k=3))
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
+      
+    if event.message.text == "科技新知":
+        content = panx()
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+        return 0
+      
     if event.message.text == "早安哲學":
         article = random.choice(sheet_morningwisdom.col_values(1))
         line_bot_api.reply_message(
