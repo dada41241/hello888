@@ -350,6 +350,12 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=motto))
         return 0
+    if event.message.text == "英文格言":
+        mottoeng = random.choice(sheet.col_values(20))
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=mottoeng))
+        return 0
 
       
  
