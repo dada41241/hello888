@@ -188,6 +188,50 @@ def handle_message(event):
  
                                                         
         return 0
+  
+    if event.message.text == "早安":
+        client = ImgurClient('18f064544f219ac', 'b17f2b3ef24f98c4e3cce9424ef0b1b7173ef642')
+        images = client.get_album_images('qpPMzY9')
+        index = random.randint(0, len(images) - 1)
+        url = images[index].link
+        image_message = ImageSendMessage(
+            original_content_url=url,
+            preview_image_url=url
+        )
+        index = random.randint(0, len(images) - 1)
+        url = images[index].link
+        image_message2 = ImageSendMessage(
+            original_content_url=url,
+            preview_image_url=url
+        )
+        index = random.randint(0, len(images) - 1)
+        url = images[index].link
+        image_message3 = ImageSendMessage(
+            original_content_url=url,
+            preview_image_url=url
+        )
+        
+        
+        早安_list=["早安","早上好","晨安","早晨好","太陽公公起來囉","晨曦多美好","旭日東昇","早上安好","早安呀","多美的太陽呀",
+                 "早起多美好","早","早安朋友","晨安朋友","佛安"]
+        認同分享_list=["認同請分享","分享是做功德","按讚是美德，分享是功德!","每天都要傳遞正能量","每天都要道聲早安"]
+        逗點1_list=["！","！！","~","~~","~~!","~！","！！！"]
+        逗點2_list=["，","！","！！","~","~~","~~!","~!","！！！","。"]
+        逗點3_list=["！","！！","~","~~","~~~","~！","。"]
+        
+        早安 = random.choice(早安_list)
+        逗點1= random.choice(逗點1_list)
+        祝福 = random.choice(sheet.col_values(3))
+        逗點2= random.choice(逗點2_list)
+        認同分享=random.choice(認同分享_list)
+        逗點3= random.choice(逗點3_list)
+        
+        
+        早安祝福="{}{}{}{}{}{}".format(早安,逗點1,祝福,逗點2,認同分享,逗點3)
+        line_bot_api.reply_message(
+            event.reply_token, [image_message, image_message2, image_message3, TextSendMessage(text=早安祝福)])
+                                                        
+        return 0      
     
     if event.message.text == "午安":
         client = ImgurClient('18f064544f219ac', 'b17f2b3ef24f98c4e3cce9424ef0b1b7173ef642')
@@ -261,49 +305,7 @@ def handle_message(event):
                                                         
         return 0      
       
-    if event.message.text == "早安":
-        client = ImgurClient('18f064544f219ac', 'b17f2b3ef24f98c4e3cce9424ef0b1b7173ef642')
-        images = client.get_album_images('qpPMzY9')
-        index = random.randint(0, len(images) - 1)
-        url = images[index].link
-        image_message = ImageSendMessage(
-            original_content_url=url,
-            preview_image_url=url
-        )
-        index = random.randint(0, len(images) - 1)
-        url = images[index].link
-        image_message2 = ImageSendMessage(
-            original_content_url=url,
-            preview_image_url=url
-        )
-        index = random.randint(0, len(images) - 1)
-        url = images[index].link
-        image_message3 = ImageSendMessage(
-            original_content_url=url,
-            preview_image_url=url
-        )
-        
-        
-        早安_list=["早安","早上好","晨安","早晨好","太陽公公起來囉","晨曦多美好","旭日東昇","早上安好","早安呀","多美的太陽呀",
-                 "早起多美好","早","早安朋友","晨安朋友","佛安"]
-        認同分享_list=["認同請分享","分享是做功德","按讚是美德，分享是功德!","每天都要傳遞正能量","每天都要道聲早安"]
-        逗點1_list=["！","！！","~","~~","~~!","~！","！！！"]
-        逗點2_list=["，","！","！！","~","~~","~~!","~!","！！！","。"]
-        逗點3_list=["！","！！","~","~~","~~~","~！","。"]
-        
-        早安 = random.choice(早安_list)
-        逗點1= random.choice(逗點1_list)
-        祝福 = random.choice(sheet.col_values(3))
-        逗點2= random.choice(逗點2_list)
-        認同分享=random.choice(認同分享_list)
-        逗點3= random.choice(逗點3_list)
-        
-        
-        早安祝福="{}{}{}{}{}{}".format(早安,逗點1,祝福,逗點2,認同分享,逗點3)
-        line_bot_api.reply_message(
-            event.reply_token, [image_message, TextSendMessage(text=早安祝福)])
-                                                        
-        return 0      
+
       
     if event.message.text == "我要問安圖!":
         message = ImagemapSendMessage(
