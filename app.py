@@ -324,8 +324,8 @@ def handle_message(event):
                         text='早安格言'
                     ),
                     MessageTemplateAction(
-                        label='英語格言',
-                        text='英語格言'
+                        label='英文格言',
+                        text='英文格言'
                     )
                 ]
             )
