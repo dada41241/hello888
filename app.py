@@ -290,7 +290,7 @@ def handle_message(event):
             alt_text='新聞 template',
             template=ButtonsTemplate(
                 title='新聞類型',
-                text='永遠渴求新知',
+                text='永遠求知若渴',
                 thumbnail_image_url='https://i.imgur.com/vkqbLnz.png',
                 actions=[
                     MessageTemplateAction(
@@ -302,8 +302,8 @@ def handle_message(event):
                         text='健康新知'
                     ),
                     MessageTemplateAction(
-                        label='PanX泛科技',
-                        text='PanX泛科技'
+                        label='科技新知',
+                        text='科技新知'
                     )
                 ]
             )
@@ -317,7 +317,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 title='早安格言',
                 text='充實你的內涵',
-                thumbnail_image_url='https://i.imgur.com/vkqbLnz.png',
+                thumbnail_image_url='https://i.imgur.com/RNDia1O.png',
                 actions=[
                     MessageTemplateAction(
                         label='早安格言',
