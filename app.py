@@ -361,7 +361,7 @@ def handle_message(event):
 
     if event.message.text == "活到老，學到老，知識就是我的糧食!":
         buttons_template = TemplateSendMessage(
-            alt_text='新聞 template',
+            alt_text='新知',
             template=ButtonsTemplate(
                 title='新聞類型',
                 text='永遠求知若渴，知識就是力量!',
@@ -387,7 +387,7 @@ def handle_message(event):
       
     if event.message.text == "格言":
         buttons_template = TemplateSendMessage(
-            alt_text='新聞 template',
+            alt_text='格言',
             template=ButtonsTemplate(
                 title='早安格言',
                 text='充實你的內涵，內涵是最好的化粧品',
