@@ -139,6 +139,19 @@ def panx():
         news='{}\n{}\n\n'.format(title, link)
         content.append(news)
     return content
+  
+def storm():
+    target_url = 'https://www.storm.mg/category/k11813'
+    rs = requests.session()
+    res = rs.get(target_url, verify=False)
+    soup = BeautifulSoup(res.text, 'html.parser')
+    content= []
+    for data in soup.select('div.category_card.card_thumbs_left a.card_link.link_title '):
+        title = data.text
+        link = data['href']
+        news='{}{}\n\n'.format(title, link)
+        content.append(news)
+    return content
 
 # 處理訊息
 
@@ -376,8 +389,8 @@ def handle_message(event):
                         text='健康新知'
                     ),
                     MessageTemplateAction(
-                        label='科技新知',
-                        text='科技新知'
+                        label='關鍵大事',
+                        text='關鍵大事'
                     )
                 ]
             )
@@ -421,8 +434,8 @@ def handle_message(event):
             TextSendMessage(text=content))
         return 0
 #泛科技      
-    if event.message.text == "科技新知":
-        content="".join(random.sample(panx(),k=3))
+    if event.message.text == "關鍵大事":
+        content="".join(random.sample(storm(),k=3))
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
