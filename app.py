@@ -242,7 +242,7 @@ def handle_message(event):
         
         早安祝福="{}{}{}{}{}{}".format(早安,逗點1,祝福,逗點2,認同分享,逗點3)
         line_bot_api.reply_message(
-            event.reply_token, [image_message, image_message2, image_message3, TextSendMessage(text=早安祝福)])
+            event.reply_token, [image_message, TextSendMessage(text=早安祝福)])
                                                         
         return 0      
     
