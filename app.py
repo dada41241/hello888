@@ -334,7 +334,19 @@ def handle_message(event):
                                                         
         return 0      
       
-
+    if event.message.text == "每日一笑":
+        client = ImgurClient('18f064544f219ac', 'b17f2b3ef24f98c4e3cce9424ef0b1b7173ef642')
+        images = client.get_album_images('VOX4l2Y')
+        index = random.randint(0, len(images) - 1)
+        url = images[index].link
+        image_message = ImageSendMessage(
+            original_content_url=url,
+            preview_image_url=url
+        )
+        line_bot_api.reply_message(
+            event.reply_token, image_message)
+                                                        
+        return 0
       
     if event.message.text == "我要問安圖!":
         message = ImagemapSendMessage(
