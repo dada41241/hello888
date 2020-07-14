@@ -339,7 +339,7 @@ def handle_message(event):
         images = client.get_album_images('VOX4l2Y')
         index = random.randint(0, len(images) - 1)
         first5 = random.randint(len(images) - 7, len(images) - 3)
-        url = images[first5].link
+        url = images[index].link
         image_message = ImageSendMessage(
             original_content_url=url,
             preview_image_url=url
