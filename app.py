@@ -346,7 +346,7 @@ def handle_message(event):
         )
 
         line_bot_api.reply_message(
-            event.reply_token, random.choice([image_message, TextSendMessage(text="週末祝福") ]))
+            event.reply_token, image_message)
                                                         
         return 0
       
