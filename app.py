@@ -344,8 +344,9 @@ def handle_message(event):
             original_content_url=url,
             preview_image_url=url
         )
+
         line_bot_api.reply_message(
-            event.reply_token, image_message)
+            event.reply_token, random.choice(["image_message", "TextSendMessage(text="測試笑話")"]))
                                                         
         return 0
       
